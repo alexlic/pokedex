@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {NavigationContext} from '@/context/Navigation';
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
+import {NavigationContext} from '@/context/Navigation';
 
 const Head = () => {
   const {navigation} = useContext(NavigationContext);
