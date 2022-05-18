@@ -1,6 +1,7 @@
 import React from 'react';
-import {FlatList, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {FlatList, Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons/faArrowRight';
+import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {capitalizeWord} from '@/helpers/text';
 
@@ -16,8 +17,19 @@ const PredictionsList = ({predictions, onPress}) => {
       keyExtractor={item => item.name}
       renderItem={({item}) => (
         <TouchableOpacity style={styles.listItem} onPress={() => onPress(item)}>
-          <Text style={styles.listText}>{capitalizeWord(item.name)}</Text>
-          <FontAwesomeIcon size={22} icon={faArrowRight} />
+          <View style={styles.listItemLeft}>
+            <FontAwesomeIcon
+              style={styles.listItemIcon}
+              size={22}
+              icon={faSearch}
+            />
+            <Text style={styles.listText}>{capitalizeWord(item.name)}</Text>
+          </View>
+          <FontAwesomeIcon
+            style={styles.listItemIcon}
+            size={22}
+            icon={faArrowRight}
+          />
         </TouchableOpacity>
       )}
     />
@@ -30,6 +42,8 @@ const styles = StyleSheet.create({
   },
   listText: {
     fontSize: 18,
+    color: '#424242',
+    marginLeft: 15,
   },
   listItem: {
     width: '100%',
@@ -38,6 +52,13 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     marginTop: 8,
     justifyContent: 'space-between',
+  },
+  listItemLeft: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  listItemIcon: {
+    color: '#9e9e9e',
   },
 });
 

@@ -11,7 +11,7 @@ const Home = ({...props}) => {
   }, [props.navigation, setNavigation]);
   return (
     <SafeAreaView>
-      <Head {...props} />
+      <Head isHome />
       <CardsWrapper />
     </SafeAreaView>
   );
