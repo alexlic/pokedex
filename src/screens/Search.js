@@ -68,7 +68,9 @@ const Search = () => {
 
 const styles = StyleSheet.create({
   searchContainer: {
-    margin: 12,
+    marginLeft: 12,
+    marginRight: 12,
+    marginTop: 4,
   },
   head: {
     display: 'flex',

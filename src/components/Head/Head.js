@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: 15,
     paddingRight: 15,
+    paddingTop: 6,
   },
   headerText: {
     fontSize: 32,
