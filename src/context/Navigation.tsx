@@ -2,7 +2,7 @@ import React, {useState, createContext} from 'react';
 
 export const NavigationContext = createContext();
 
-const NavigationProvider = ({children}) => {
+const NavigationProvider = ({children}: {children: JSX.Element}) => {
   const [navigation, setNavigation] = useState(null);
 
   const value = {

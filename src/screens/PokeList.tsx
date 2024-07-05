@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React from 'react';
 import {
   Pressable,
   SafeAreaView,
@@ -9,21 +9,14 @@ import {
 } from 'react-native';
 import {NavigationContext} from '../context/Navigation';
 import Head from '../components/Head';
-import {fetchData} from '../services/apiRequest';
 import {capitalizeWord} from '../helpers/text';
+import {useFetchRegionList} from '../hooks/useFetchRegionList';
 
 const PokeList = ({route}) => {
   const {dexNum, color} = route.params;
-  const [pokeList, setPokeList] = useState([]);
-  const {navigation} = useContext(NavigationContext);
 
-  useEffect(() => {
-    fetchData(`/pokedex/${dexNum}`)
-      .then(({data}) => {
-        setPokeList(data.pokemon_entries);
-      })
-      .catch(err => console.log(err));
-  }, [dexNum]);
+  const {navigation} = React.useContext(NavigationContext);
+  const [pokeList] = useFetchRegionList(dexNum);
 
   return (
     <SafeAreaView>
